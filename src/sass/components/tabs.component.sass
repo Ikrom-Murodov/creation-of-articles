@@ -1,0 +1,24 @@
+.section-tabs
+
+  &__wrapper-item
+    display: flex
+    justify-content: space-between
+    list-style: none
+    border-bottom: .1rem solid $section-tabs-wrapper-item-border-bottom-color
+    padding-bottom: 1rem
+    
+  &__link
+    color: $main-color
+    text-decoration: none
+    font-size: 2rem
+    cursor: pointer
+    transition: color .4s
+
+    &:hover
+      color: $section-tabs-link-hover-color
+
+  &__link_active
+    border: .2rem solid $section-tabs-link_active-border-color
+    border-bottom-color: white
+    border-top-color: #0288D1
+    padding: 1rem 2rem
