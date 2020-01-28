@@ -1,0 +1,52 @@
+.create-post
+
+  &__content
+    width: 100%
+    padding-top: 1.5rem
+  
+  &__title
+    font-size: 3.5rem
+    font-weight: 500
+
+.form
+
+  &__wrapper-input-title, &__wrapper-input-text, &__wrapper-type-post
+    margin-top: 1rem
+    display: flex
+    flex-direction: column
+
+  &__input-text-title, &__input-title-text, &__input-title-select
+    color: $form-inputs-label-color
+    font-size: 2rem
+    letter-spacing: .1rem
+
+  &__input-title, &__input-textarea, &__type-post
+    border: .1rem solid $form-input-border-color
+    border-radius: .5rem
+    padding: 1rem 1rem
+    font-size: 1.6rem
+    outline: none
+    color: $main-color
+    margin-top: .3rem
+    transition: border .4s
+    width: 100%
+    max-width: 70rem
+
+
+    &::placeholder
+      color: $main-color
+
+    &:focus
+      border: .1rem solid $form-input-focus-border-color
+
+  &__input-textarea
+    min-height: 15rem
+
+  &__type-post
+    width: 100%
+
+  &__wrapper-button
+    margin-top: 1rem
+
+  &__button
+    width: 40%
