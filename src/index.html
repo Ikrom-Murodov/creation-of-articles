@@ -40,24 +40,32 @@
           <div class="section-tabs section__tabs">
             <ul class="section-tabs__wrapper-item">
               <li class="section-tabs__item">
-                <a href="#Посты" class="section-tabs__link ">Посты</a>
+                <a data-name="post" href="#Посты" class="section-tabs__link"
+                  >Посты</a
+                >
               </li>
               <li class="section-tabs__item">
                 <a
+                  data-name="create"
                   href="#Создать"
                   class="section-tabs__link section-tabs__link_active"
                   >Создать</a
                 >
               </li>
               <li class="section-tabs__item">
-                <a href="#Избранное" class="section-tabs__link">Избранное</a>
+                <a
+                  data-name="favorite"
+                  href="#Избранное"
+                  class="section-tabs__link"
+                  >Избранное</a
+                >
               </li>
             </ul>
           </div>
           <!--//Tabs\\-->
 
           <!--Create post-->
-          <div class="create-post">
+          <div id="create" class="create-post">
             <div class="create-post__content">
               <div class="create-post__wrapper-title">
                 <h3 class="create-post__title">Создать новый пост</h3>
@@ -106,7 +114,8 @@
           <!--//Create post\\-->
 
           <!-- Posts -->
-          <div class="wrapper-posts hide">
+          <div id="post" class="wrapper-posts hide">
+            <h1>Hello Post</h1>
             <!-- <div class="post wrapper-posts__post">
               <div class="post__content">
                 <div class="post__wrapper-title">
@@ -143,7 +152,9 @@
           <!-- //Posts\\ -->
 
           <!-- Favorite -->
-          <div class="favorite section__favorite hide"></div>
+          <div id="favorite" class="favorite section__favorite hide">
+            <h1>Hello Favorite</h1>
+          </div>
           <!--//Favorite\\-->
         </div>
       </div>

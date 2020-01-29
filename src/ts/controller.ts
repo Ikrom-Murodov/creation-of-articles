@@ -16,7 +16,13 @@ class Controller {
 
     this.init();
   }
-  private init() {}
+  private init(): void {
+    this.View.wrapperTabs.addEventListener("click", (event: any) => {
+      if (event.target.tagName === "A") {
+        this.View.wrapperTabsHandler(event);
+      }
+    });
+  }
 }
 
 export default Controller;
