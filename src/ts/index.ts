@@ -4,7 +4,9 @@ import View from "./view";
 import Model from "./model";
 import Controller from "./controller";
 
-const model: Model = new Model({});
+const model: Model = new Model({
+  url: "https://post-fb8f6.firebaseio.com/"
+});
 
 const view: View = new View({
   wrapperTabs: document.querySelector(".section-tabs__wrapper-item"),

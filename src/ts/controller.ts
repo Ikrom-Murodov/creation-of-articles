@@ -6,6 +6,13 @@ interface IController {
   View: View;
 }
 
+interface IContentData {
+  title: string;
+  description: string;
+  type: string;
+  date: string;
+}
+
 class Controller {
   private Model: Model;
   private View: View;
@@ -44,6 +51,13 @@ class Controller {
     ) {
       this.View.formError();
     } else {
+      const content: IContentData = {
+        title: this.View.formTitle.value,
+        description: this.View.formDescription.value,
+        type: this.View.formType.value,
+        date: new Date().toLocaleDateString()
+      };
+      this.Model.saveData(content);
       this.View.formNoError();
     }
   }
