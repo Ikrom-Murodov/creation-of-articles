@@ -7,6 +7,7 @@ interface IView {
   formDescription: HTMLTextAreaElement;
   formType: HTMLSelectElement;
   sectionPost: HTMLDivElement;
+  sectionFavorite: HTMLDivElement;
 }
 
 interface ICreatePostsCard {
@@ -26,6 +27,7 @@ class View {
   readonly formDescription: HTMLTextAreaElement;
   readonly formType: HTMLSelectElement;
   readonly sectionPost: HTMLDivElement;
+  readonly sectionFavorite: HTMLDivElement;
 
   constructor(settings: IView) {
     this.wrapperTabs = settings.wrapperTabs;
@@ -36,6 +38,7 @@ class View {
     this.formDescription = settings.formDescription;
     this.formType = settings.formType;
     this.sectionPost = settings.sectionPost;
+    this.sectionFavorite = settings.sectionFavorite;
 
     this.init();
   }
@@ -97,6 +100,43 @@ class View {
       );
       this.sectionPost.appendChild(element);
     }
+  }
+
+  public showFavorite(array: any[]) {
+    this.sectionFavorite.innerText = "";
+    array.forEach((element: any) => {
+      const response = this.showFavoriteTemplate(
+        element.title,
+        element.type,
+        element.description,
+        element.date
+      );
+      this.sectionFavorite.appendChild(response);
+    });
+  }
+
+  private showFavoriteTemplate(
+    title: string,
+    type: string,
+    description: string,
+    date: string
+  ) {
+    const post = document.createElement("div");
+    post.className = "post wrapper-posts__post";
+    post.innerHTML = `
+      <div class="post__content">
+        <div class="post__wrapper-title">
+          <h3 class="post__title">${title}</h3>
+          <div class="post__type">${type}</div>
+        </div>
+        <div class="post__wrapper-description">
+          <span class="post__description">${description}</span>
+        </div>
+        <div class="post__wrapper-date">
+          <div class="post__date">${date}</div>
+        </div>
+      </div>`;
+    return post;
   }
 
   public buttonSaveDataHandler() {

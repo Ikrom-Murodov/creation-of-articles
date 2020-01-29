@@ -46,6 +46,11 @@ class Controller {
       this.View.wrapperTabsHandler(event);
     }
 
+    if (event.target.getAttribute("data-name") === "favorite") {
+      const response = await this.Model.getDataFavorite();
+      this.View.showFavorite(response)
+    }
+
     if (event.target.getAttribute("data-name") === "post") {
       const response = await this.Model.getData();
       this.View.showPost(response);

@@ -35,6 +35,21 @@ class Model {
     const responseJSON = await response.json();
     return responseJSON;
   }
+
+  public async getDataFavorite() {
+    const arr: string[] = [];
+
+    const responseLS = JSON.parse(localStorage.getItem("favorites"));
+
+    for (let index = 0; index < responseLS.length; index++) {
+      const element = responseLS[index];
+      const response = await fetch(`${this.url}/posts/${element}.json`);
+      const responseJSON = await response.json();
+      arr.push(responseJSON);
+    }
+
+    return arr;
+  }
 }
 
 export default Model;
