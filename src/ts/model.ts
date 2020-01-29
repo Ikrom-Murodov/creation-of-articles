@@ -16,7 +16,7 @@ class Model {
     this.url = settings.url;
   }
 
-  public async saveData(content: IContentData) {
+  public async saveData(content: IContentData): Promise<void> {
     try {
       const response = await fetch(`${this.url}/posts.json`, {
         method: "POST",
@@ -28,6 +28,12 @@ class Model {
     } catch (error) {
       console.log(new Error(`Ошибка ${error}`));
     }
+  }
+
+  public async getData() {
+    const response: Response = await fetch(`${this.url}/posts.json`);
+    const responseJSON = await response.json();
+    return responseJSON;
   }
 }
 

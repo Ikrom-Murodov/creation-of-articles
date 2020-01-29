@@ -15,7 +15,8 @@ const view: View = new View({
   form: document.querySelector(".form"),
   formTitle: document.querySelector(".form__input-title"),
   formDescription: document.querySelector(".form__input-textarea"),
-  formType: document.querySelector(".form__type-post")
+  formType: document.querySelector(".form__type-post"),
+  sectionPost: document.querySelector(".wrapper-posts")
 });
 
 const controller: Controller = new Controller({

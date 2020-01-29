@@ -24,9 +24,13 @@ class Controller {
     this.init();
   }
   private init(): void {
-    this.View.wrapperTabs.addEventListener("click", (event: any) => {
+    this.View.wrapperTabs.addEventListener("click", async (event: any) => {
       if (event.target.tagName === "A") {
         this.View.wrapperTabsHandler(event);
+      }
+      if (event.target.getAttribute("data-name") === "post") {
+        const response = await this.Model.getData();
+        this.View.showPost(response);
       }
     });
 
@@ -43,7 +47,7 @@ class Controller {
     });
   }
 
-  private formHandler(event: Event) {
+  private formHandler(event: Event): void {
     event.preventDefault();
     if (
       this.View.formTitle.value.length < 3 ||

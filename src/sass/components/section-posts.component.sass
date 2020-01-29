@@ -7,7 +7,11 @@
   &__content
     width: 100%
     box-shadow: 0rem 0rem 1rem .5rem rgba(0, 0, 0, .1)
-    margin-top: 2rem
+    margin: 2rem 0rem 2rem 0rem
+    min-height: 20rem
+    display: flex
+    flex-direction: column 
+    justify-content: space-between
 
   &__wrapper-title, &__wrapper-date
     background-color: $post-wrapper-title-and-wrapper-date-background-color
@@ -46,6 +50,7 @@
     letter-spacing: .1rem
     cursor: pointer
     transition: background-color .4s
+    outline: none
 
     &:hover
       background-color: $post-button-save-hover-background-color
