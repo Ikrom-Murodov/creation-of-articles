@@ -24,14 +24,8 @@ class Controller {
     this.init();
   }
   private init(): void {
-    this.View.wrapperTabs.addEventListener("click", async (event: any) => {
-      if (event.target.tagName === "A") {
-        this.View.wrapperTabsHandler(event);
-      }
-      if (event.target.getAttribute("data-name") === "post") {
-        const response = await this.Model.getData();
-        this.View.showPost(response);
-      }
+    this.View.wrapperTabs.addEventListener("click", (event: any) => {
+      this.wrapperTabsHandler(event);
     });
 
     this.View.form.addEventListener("submit", () => {
@@ -45,6 +39,18 @@ class Controller {
     this.View.formTitle.addEventListener("change", () => {
       this.View.formChange(this.View.formTitle);
     });
+  }
+
+  private async wrapperTabsHandler(event: any) {
+    if (event.target.tagName === "A") {
+      this.View.wrapperTabsHandler(event);
+    }
+
+    if (event.target.getAttribute("data-name") === "post") {
+      const response = await this.Model.getData();
+      this.View.showPost(response);
+      this.View.buttonSaveDataHandler();
+    }
   }
 
   private formHandler(event: Event): void {

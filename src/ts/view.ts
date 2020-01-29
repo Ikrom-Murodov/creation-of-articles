@@ -99,6 +99,30 @@ class View {
     }
   }
 
+  public buttonSaveDataHandler() {
+    // Данный участок кода в будущем будет изменен так как это не соответствует шаблону проектированию MVC
+    const buttons: NodeList = document.querySelectorAll(".post__button-save");
+    buttons.forEach((element: HTMLButtonElement) => {
+      element.addEventListener("click", () => {
+        const id: string = element.getAttribute("id");
+        if (id) {
+          let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+          if (favorites.includes(id)) {
+            element.textContent = "Сохранить";
+            element.classList.remove("test");
+            favorites = favorites.filter((fid: any) => fid !== id);
+          } else {
+            element.classList.add("test");
+            element.textContent = "Удалить";
+            favorites.push(id);
+          }
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+        }
+      });
+    });
+    // Данный участок кода в будущем будет изменен так как это не соответствует шаблону проектированию MVC //
+  }
+
   private createElementPost(
     title: string,
     type: string,
@@ -159,12 +183,18 @@ class View {
       innerTag: date
     });
 
+    // Данный участок кода в будущем будет изменен так как это не соответствует шаблону проектированию MVC
+    const result = (
+      JSON.parse(localStorage.getItem("favorites")) || []
+    ).includes(id);
+    // Данный участок кода в будущем будет изменен так как это не соответствует шаблону проектированию MVC //
+
     const postButton: HTMLElement = this.createElement({
       nameTag: "button",
       className: "post__button-save",
       attributeName: "id",
       attributeValue: id,
-      innerTag: "Сохранить"
+      innerTag: result ? "Удалить" : "Сохранить"
     });
 
     this.elementAppendChild(postWrapperDate, postDate, postButton);
