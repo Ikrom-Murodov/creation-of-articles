@@ -22,6 +22,30 @@ class Controller {
         this.View.wrapperTabsHandler(event);
       }
     });
+
+    this.View.form.addEventListener("submit", () => {
+      this.formHandler(event);
+    });
+
+    this.View.formDescription.addEventListener("change", () => {
+      this.View.formChange(this.View.formDescription);
+    });
+
+    this.View.formTitle.addEventListener("change", () => {
+      this.View.formChange(this.View.formTitle);
+    });
+  }
+
+  private formHandler(event: Event) {
+    event.preventDefault();
+    if (
+      this.View.formTitle.value.length < 3 ||
+      this.View.formDescription.value.length < 10
+    ) {
+      this.View.formError();
+    } else {
+      this.View.formNoError();
+    }
   }
 }
 
