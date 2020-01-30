@@ -24,3 +24,19 @@ const controller: Controller = new Controller({
   Model: model,
   View: view
 });
+
+// Данный фрагмент кода будет изменен
+(() => {
+  document.querySelector(".section").classList.add("hide");
+  if (localStorage.getItem("visited")) {
+    document.querySelector(".header").classList.add("hide");
+    document.querySelector(".section").classList.remove("hide");
+  } else {
+    document.querySelector(".header__button").addEventListener("click", () => {
+      document.querySelector(".header").classList.add("hide");
+      localStorage.setItem("visited", JSON.stringify(true));
+      document.querySelector(".section").classList.remove("hide");
+    });
+  }
+})();
+// Данный фрагмент кода будет изменен //
