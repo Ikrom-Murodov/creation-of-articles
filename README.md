@@ -27,7 +27,7 @@ $ npm install -g typescript
 > Клонируйте данный репозиторий (git clone <репозиторий>).
 
 ```
-$ https://github.com/Ikrom-Murodov/Webpack-4.git
+$ https://github.com/Ikrom-Murodov/creation-of-articles.git
 ```
 
 > Запустить команду 'npm i' в корне проекта в терминале. Данная команда установит все пакеты, которые указанны в файле package.json, а также все их зависимости.
